@@ -1,0 +1,34 @@
+{
+  "name": "usewaitforelements",
+  "version": "1.0",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "umd:main": "./dist/index.umd.js",
+  "author": "Renan Soares <renan@rensoares.com>",
+  "description": "useWaitForElements - A hook to check when elements are currently rendered",
+  "repository": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "microbundle src/index.ts --sourcemap false --no-compress --jsx React.createElement",
+    "dev": "microbundle watch --jsx",
+    "test": "jest --silent"
+  },
+  "peerDependencies": {
+    "react": ">=16.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-typescript": "^7.12.17",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@types/jest": "^26.0.20",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "microbundle": "^0.13.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.5"
+  }
+}
