@@ -1,16 +1,19 @@
 <div align="center">
-    <h1>useWaitForElements ⏳</h1>
+<h1>useWaitForElements ⏳</h1>
 
-    <p>
-        A React hook to be used to know when elements are rendered build with [MutationObserver][https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver].
-    </p>
+<p>
+A React hook to be used to know when elements are rendered build with 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">
+<strong>MutationObserver</a></strong>.
+</p>
+
 </div>
 
 ## When do I need it?
 
 Sometimes, you need to know when an element is currently rendered. One of the ways to do it is using MutationObserver. Using MutationObserver, this hook allows to know when a list of elements are rendered. 
 
-React provides a solution[https://reactjs.org/docs/hooks-faq.html#how-can-i-measure-a-dom-node] when you want to know if a component is rendered that might be better than using this hook in some cases.
+React provides a [`solution`](https://reactjs.org/docs/hooks-faq.html#how-can-i-measure-a-dom-node) when you want to know if a component is rendered that might be better than using this hook in some cases.
 
 ## Installation
 
@@ -20,7 +23,7 @@ npm install --save use-wait-for-elements
 
 ## Usage
 
-You need to pass to the hook an object with an identifier and a [selector][https://developer.mozilla.org/en-US/docs/Web/API/DOMString] for each element.
+You need to pass to the hook an object with an identifier and a [`selector`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString) for each element.
 
 Hook will return an object with the id, and a boolean indicating the presence for each element.
 
