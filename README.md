@@ -2,7 +2,7 @@
 <h1>useWaitForElements ⏳</h1>
 
 <p>
-A React hook to be used to know when elements are rendered build with 
+A React hook to be used to know when elements are rendered built with 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">
 <strong>MutationObserver</a></strong>.
 </p>
@@ -11,14 +11,16 @@ A React hook to be used to know when elements are rendered build with
 
 ## When do I need it?
 
-Sometimes, you need to know when an element is currently rendered. One of the ways to do it is using MutationObserver. Using MutationObserver, this hook allows to know when a list of elements are rendered. 
+Sometimes, you need to know when elements are currently rendered. One of the ways to do it is using MutationObserver. Using MutationObserver, this hook allows to know when a list of elements are rendered. 
 
 React provides a [`solution`](https://reactjs.org/docs/hooks-faq.html#how-can-i-measure-a-dom-node) when you want to know if a component is rendered that might be better than using this hook in some cases.
+
+**This hook only tracks until all the elements are rendered. It stops observing after it, so if you are observing elements that can change state after the first render. I would recommend forking the repository and changing it.**
 
 ## Installation
 
 ```shell
-npm install --save use-wait-for-elements
+npm install --save usewaitforelements
 ```
 
 ## Usage
@@ -32,7 +34,7 @@ Hook will return an object with the id, and a boolean indicating the presence fo
 ```jsx
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import useWaitForElements from 'use-wait-for-elements'
+import useWaitForElements from 'usewaitforelements'
 
 function Component(...props) {
   const [shouldRender, setShouldRender] = useState(false);

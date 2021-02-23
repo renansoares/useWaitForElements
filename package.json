@@ -1,13 +1,27 @@
 {
   "name": "usewaitforelements",
-  "version": "1.0",
+  "version": "1.0.0",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "umd:main": "./dist/index.umd.js",
   "author": "Renan Soares <renan@rensoares.com>",
   "description": "useWaitForElements - A hook to check when elements are currently rendered",
-  "repository": "",
   "license": "MIT",
+  "keywords": [
+    "useWaitForElements",
+    "react",
+    "hooks",
+    "wait for elements",
+    "mutationobserver",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renansoares/useWaitForElements"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "microbundle src/index.ts --sourcemap false --no-compress --jsx React.createElement",
     "dev": "microbundle watch --jsx",
