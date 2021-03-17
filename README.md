@@ -25,7 +25,7 @@ npm install --save usewaitforelements
 
 ## Usage
 
-You need to pass to the hook an object with an identifier and a [`selector`](https://developer.mozilla.org/en-US/docs/Web/API/DOMString) for each element.
+You need to pass to the hook an object with an identifier and a [`selector`](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors) for each element.
 
 Hook will return an object with the id, and a boolean indicating the presence for each element.
 
