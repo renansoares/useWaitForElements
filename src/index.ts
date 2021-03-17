@@ -23,7 +23,8 @@ function useWaitForElements(elements: WaitElements,
     const [result, setResult] = useState({});
     const mutationObserver = useRef<MutationObserver | null>(null);
 
-    const elementsString = JSON.stringify(elements);
+    const localElements = JSON.stringify(elements);
+    const localObserverOptions = JSON.stringify(observerOptions);
 
     const stopObserver = () => {
         if (mutationObserver.current !== null) {
@@ -36,26 +37,22 @@ function useWaitForElements(elements: WaitElements,
         let updatedResult = {};
         let hasMissingElements = false;
 
-        const elementsJSON: WaitElements = JSON.parse(elementsString);
-
-        for (const [element, selector] of Object.entries(elementsJSON)) {
-            const isElementPresent = !!document.querySelector(selector);
-            if (!isElementPresent)
+        for (const [element, selector] of Object.entries(JSON.parse(localElements) as WaitElements)) {
+            const isPresent = !!document.querySelector(selector);
+            if (!isPresent)
                 hasMissingElements = true;
 
-            updatedResult = { ...updatedResult, [element]: isElementPresent };
+            updatedResult = { ...updatedResult, [element]: isPresent };
         }
 
         if (!hasMissingElements)
             stopObserver();
 
         setResult(updatedResult);
-    }, [elementsString]);
+    }, [localElements]);
 
     useEffect(() => {
-        const elementsJSON: WaitElements = JSON.parse(elementsString);
-
-        if (mutationObserver.current === null && Object.keys(elementsJSON).length >= 1) {
+        if (mutationObserver.current === null && Object.keys(JSON.parse(localElements)).length >= 1) {
             const observerCallback = (entries: MutationRecord[]) => {
                 for (const entry of entries) {
                     if (entry.addedNodes.length >= 1)
@@ -64,9 +61,9 @@ function useWaitForElements(elements: WaitElements,
             };
 
             mutationObserver.current = new MutationObserver(observerCallback);
-            mutationObserver.current.observe(observerNode, observerOptions);
+            mutationObserver.current.observe(observerNode, JSON.parse(localObserverOptions));
         }
-    }, [elementsString, refreshResult, observerNode, observerOptions]);
+    }, [localElements, localObserverOptions, refreshResult, observerNode]);
 
     useEffect(() => {
         refreshResult();
